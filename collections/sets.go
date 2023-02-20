@@ -14,3 +14,11 @@ func (set Set[T]) Has(value T) bool {
 	_, exist := set[value]
 	return exist
 }
+
+func (set Set[T]) ToSlice() []T {
+	slice := make([]T, 0, len(set))
+	for value := range set {
+		slice = append(slice, value)
+	}
+	return slice
+}
